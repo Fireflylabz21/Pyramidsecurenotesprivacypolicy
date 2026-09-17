@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Pyramid Secure Notes</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                        darkbg: '#0a0d0e',
+                        darkcard: '#12181a',
+                        darkborder: '#1f292d'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom scrollbar and glassmorphism styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(16, 185, 129, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(16, 185, 129, 0.6);
+        }
+        .glass-panel {
+            background: rgba(18, 24, 26, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .light .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        /* Print Stylesheet */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-full {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .glass-panel {
+                background: none !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-slate-300 dark:bg-darkbg dark:text-slate-300 transition-colors duration-300 min-h-screen font-sans selection:bg-emerald-500 selection:text-white">
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-50 w-full border-b border-darkborder dark:border-darkborder bg-darkbg/80 dark:bg-darkbg/80 backdrop-blur-md transition-colors no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo & Brand -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-slate-950 font-bold shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                    <i data-lucide="pyramid" class="w-6 h-6 stroke-[2.5]"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-bold tracking-tight text-white dark:text-white flex items-center gap-2">
+                        Pyramid <span class="text-emerald-400">Secure Notes</span>
+                    </span>
+                    <span class="block text-[10px] text-slate-400 tracking-wider uppercase font-semibold">Privacy Policy</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="#overview" class="hover:text-emerald-400 transition-colors">Overview</a>
+                <a href="#data-storage" class="hover:text-emerald-400 transition-colors">Data Storage</a>
+                <a href="#permissions" class="hover:text-emerald-400 transition-colors">Permissions</a>
+                <a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
+            </nav>
+
+            <!-- Quick Action Controls -->
+            <div class="flex items-center gap-3">
+                <!-- Search Button -->
+                <button onclick="toggleSearchModal()" aria-label="Search policy" class="p-2.5 rounded-lg border border-darkborder bg-darkcard text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-all flex items-center gap-2 text-xs">
+                    <i data-lucide="search" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Search Policy</span>
+                </button>
+
+                <!-- Theme Toggle Button -->
+                <button id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle theme" class="p-2.5 rounded-lg border border-darkborder bg-darkcard text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-all">
+                    <i data-lucide="sun" id="sunIcon" class="w-4 h-4 hidden"></i>
+                    <i data-lucide="moon" id="moonIcon" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Print Document Button -->
+                <button onclick="window.print()" aria-label="Print policy" class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold text-xs transition-all shadow-md shadow-emerald-500/10">
+                    <i data-lucide="printer" class="w-4 h-4"></i>
+                    <span>Print PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-darkborder/60">
+        <!-- Background Ambient Glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Philosophy Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-6 shadow-sm">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                <span>Built on "Privacy by Design" Philosophy</span>
+            </div>
+
+            <!-- Page Main Title -->
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                Your Notes. Your Device. <br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500">Zero Third-Party Eyes.</span>
+            </h1>
+
+            <p class="mt-5 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Pyramid Secure Notes is crafted with uncompromising privacy. We collect no data, maintain no servers for your notes, and keep all your keys securely on your device.
+            </p>
+
+            <!-- Key Quick Stats Grid -->
+            <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="p-4 rounded-xl border border-darkborder bg-darkcard/60 backdrop-blur text-left">
+                    <div class="text-2xl font-bold text-white flex items-center gap-1.5">
+                        <i data-lucide="database-zap" class="w-5 h-5 text-emerald-400"></i>
+                        0 Bytes
+                    </div>
+                    <div class="text-xs text-slate-400 mt-1 font-medium">Personal Data Collected</div>
+                </div>
+
+                <div class="p-4 rounded-xl border border-darkborder bg-darkcard/60 backdrop-blur text-left">
+                    <div class="text-2xl font-bold text-white flex items-center gap-1.5">
+                        <i data-lucide="hard-drive" class="w-5 h-5 text-emerald-400"></i>
+                        100%
+                    </div>
+                    <div class="text-xs text-slate-400 mt-1 font-medium">On-Device Storage</div>
+                </div>
+
+                <div class="p-4 rounded-xl border border-darkborder bg-darkcard/60 backdrop-blur text-left">
+                    <div class="text-2xl font-bold text-white flex items-center gap-1.5">
+                        <i data-lucide="eye-off" class="w-5 h-5 text-emerald-400"></i>
+                        Zero
+                    </div>
+                    <div class="text-xs text-slate-400 mt-1 font-medium">Ad Trackers / Analytics</div>
+                </div>
+
+                <div class="p-4 rounded-xl border border-darkborder bg-darkcard/60 backdrop-blur text-left">
+                    <div class="text-2xl font-bold text-white flex items-center gap-1.5">
+                        <i data-lucide="key-round" class="w-5 h-5 text-emerald-400"></i>
+                        Local
+                    </div>
+                    <div class="text-xs text-slate-400 mt-1 font-medium">Encryption Key Scope</div>
+                </div>
+            </div>
+
+            <!-- Last Modified Indicator -->
+            <div class="mt-6 text-xs text-slate-400 flex items-center justify-center gap-2">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                <span>Effective Date: September 14, 2026</span>
+                <span class="mx-1">•</span>
+                <span class="text-emerald-400/90 font-medium">Version 2.4 (Active)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container with Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+            <!-- Sidebar Quick Index (Desktop) -->
+            <aside class="hidden lg:block lg:col-span-3 no-print">
+                <div class="sticky top-24 p-5 rounded-2xl border border-darkborder bg-darkcard/50 backdrop-blur space-y-4">
+                    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                        <i data-lucide="list" class="w-4 h-4 text-emerald-400"></i>
+                        Policy Contents
+                    </h2>
+                    <nav class="space-y-1 text-sm font-medium">
+                        <a href="#overview" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-emerald-500/10 transition-colors">1. Overview & Philosophy</a>
+                        <a href="#data-collection" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-emerald-500/10 transition-colors">2. Data Collection</a>
+                        <a href="#data-storage" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-emerald-500/10 transition-colors">3. Data Storage & Encryption</a>
+                        <a href="#third-party" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-emerald-500/10 transition-colors">4. Third-Party Sharing</a>
+                        <a href="#permissions" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-emerald-500/10 transition-colors">5. Device Permissions</a>
+                        <a href="#user-control" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-emerald-500/10 transition-colors">6. Your Data Control</a>
+                        <a href="#faq" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-emerald-500/10 transition-colors">7. Frequently Asked Questions</a>
+                    </nav>
+
+                    <div class="pt-4 border-t border-darkborder/80">
+                        <div class="p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/20 text-xs">
+                            <span class="font-semibold text-emerald-400 block mb-1">Local Audit Guarantee</span>
+                            Pyramid operates entirely offline by default. You can verify network isolation using any proxy tool.
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Policy Detailed Sections -->
+            <div class="lg:col-span-9 space-y-12 print-full" id="policyContent">
+
+                <!-- Section 1: Philosophy -->
+                <section id="overview" class="scroll-mt-24 p-6 sm:p-8 rounded-2xl border border-darkborder bg-darkcard/40 hover:border-darkborder/80 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <i data-lucide="compass" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white">1. Overview & "Privacy by Design" Philosophy</h2>
+                    </div>
+                    <div class="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            <strong class="text-white">Pyramid Secure Notes</strong> is architected on the fundamental principle of <em class="text-emerald-400 font-medium">Privacy by Design</em>. We believe that your private notes, sensitive thoughts, confidential documents, and personal images should remain entirely under your personal control.
+                        </p>
+                        <p>
+                            Unlike traditional cloud-based note applications that transmit your content to remote servers for indexing, sync, or monetization, Pyramid Secure Notes works in total isolation on your device. We do not maintain remote user accounts, advertising profiles, or telemetry collection systems.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section 2: Data Collection -->
+                <section id="data-collection" class="scroll-mt-24 p-6 sm:p-8 rounded-2xl border border-darkborder bg-darkcard/40 hover:border-darkborder/80 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white">2. Data Collection</h2>
+                    </div>
+                    <div class="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+                        <p class="text-lg font-semibold text-emerald-400">
+                            We collect zero personal data.
+                        </p>
+                        <p>
+                            When you download, install, or use Pyramid Secure Notes, we do not record or monitor any aspect of your activity. Specifically:
+                        </p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <li class="flex items-start gap-3 p-3 rounded-xl bg-darkbg border border-darkborder">
+                                <i data-lucide="x-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <span class="text-white font-semibold block text-xs sm:text-sm">No Usage Tracking</span>
+                                    <span class="text-xs text-slate-400">We do not track feature usage, button clicks, or session duration.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 p-3 rounded-xl bg-darkbg border border-darkborder">
+                                <i data-lucide="x-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <span class="text-white font-semibold block text-xs sm:text-sm">No IP Address Logging</span>
+                                    <span class="text-xs text-slate-400">We do not capture your IP address or internet service provider details.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 p-3 rounded-xl bg-darkbg border border-darkborder">
+                                <i data-lucide="x-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <span class="text-white font-semibold block text-xs sm:text-sm">No Location Tracking</span>
+                                    <span class="text-xs text-slate-400">We never request or collect GPS coordinates or geographic metadata.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 p-3 rounded-xl bg-darkbg border border-darkborder">
+                                <i data-lucide="x-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <span class="text-white font-semibold block text-xs sm:text-sm">No Account Credentials</span>
+                                    <span class="text-xs text-slate-400">No registration, email address, or phone number required to use the app.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 3: Data Storage -->
+                <section id="data-storage" class="scroll-mt-24 p-6 sm:p-8 rounded-2xl border border-darkborder bg-darkcard/40 hover:border-darkborder/80 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <i data-lucide="lock" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white">3. Data Storage & Local Encryption</h2>
+                    </div>
+                    <div class="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            All your data—including text notes, attached images, tags, settings, and encryption keys—is stored <strong class="text-white">exclusively on your user device</strong>.
+                        </p>
+
+                        <!-- Visual Card for Local Storage Vault -->
+                        <div class="p-5 rounded-xl bg-gradient-to-br from-emerald-950/40 via-darkcard to-darkbg border border-emerald-500/30 my-4 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
+                                    <i data-lucide="cpu" class="w-4 h-4"></i> Device Sandbox Architecture
+                                </span>
+                                <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/30">Local Enclave</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                                <div class="p-3 bg-darkbg/80 rounded-lg border border-darkborder">
+                                    <div class="font-bold text-white mb-1">📝 Notes & Text</div>
+                                    <p class="text-slate-400">Encrypted in local SQLite / Keychain sandbox using AES-256 GCM.</p>
+                                </div>
+                                <div class="p-3 bg-darkbg/80 rounded-lg border border-darkborder">
+                                    <div class="font-bold text-white mb-1">🖼️ Media & Photos</div>
+                                    <p class="text-slate-400">Stored in encrypted app storage. Never uploaded or synced.</p>
+                                </div>
+                                <div class="p-3 bg-darkbg/80 rounded-lg border border-darkborder">
+                                    <div class="font-bold text-white mb-1">🔑 Master Keys</div>
+                                    <p class="text-slate-400">Generated locally and protected by standard OS Secure Enclave / Keystore.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-400">
+                            Because your encryption keys never leave your device hardware, even if someone obtains physical access to an encrypted file backup, it cannot be decrypted without your local master passcode or biometric auth.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section 4: Third-Party Sharing -->
+                <section id="third-party" class="scroll-mt-24 p-6 sm:p-8 rounded-2xl border border-darkborder bg-darkcard/40 hover:border-darkborder/80 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <i data-lucide="share-2" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white">4. Third-Party Sharing</h2>
+                    </div>
+                    <div class="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+                        <p class="text-white font-medium">
+                            We do not share any data with third parties—because we do not have access to your data.
+                        </p>
+                        <p>
+                            Pyramid Secure Notes operates without third-party SDKs, ad networks, crash reporting services (like Firebase or AppCenter), or data brokers.
+                        </p>
+                        <div class="p-4 rounded-xl bg-darkbg border border-darkborder text-xs sm:text-sm space-y-2">
+                            <div class="flex items-center gap-2 text-emerald-400 font-semibold">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                                Zero Third-Party Integrations
+                            </div>
+                            <p class="text-slate-400">
+                                No Facebook SDK, no Google Analytics, no Flurry, no tracking cookies, and no third-party cloud sync APIs embedded inside the application binary.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 5: Permissions Detailed Inspector -->
+                <section id="permissions" class="scroll-mt-24 p-6 sm:p-8 rounded-2xl border border-darkborder bg-darkcard/40 hover:border-darkborder/80 transition-all">
+                    <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                <i data-lucide="key" class="w-6 h-6"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-white">5. Device Permissions Breakdown</h2>
+                        </div>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-full border border-darkborder">Interactive Permission Audit</span>
+                    </div>
+
+                    <p class="text-slate-300 text-sm sm:text-base mb-6">
+                        Pyramid Secure Notes requests minimal device permissions, exclusively to unlock essential local security and usability features. Here is how each permission is strictly bounded:
+                    </p>
+
+                    <!-- Interactive Permission Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                        <!-- Camera Permission -->
+                        <div class="p-5 rounded-xl bg-darkbg border border-darkborder hover:border-emerald-500/40 transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20">
+                                        <i data-lucide="camera" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30">Optional</span>
+                                </div>
+                                <h3 class="font-bold text-white text-base mb-1">Camera Permission</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                    Used solely for the optional <strong class="text-white">"Intruder Capture"</strong> feature. If enabled, when an incorrect passcode attempt is detected, a photo is captured silently.
+                                </p>
+                            </div>
+                            <div class="pt-3 border-t border-darkborder text-[11px] text-emerald-400/90 font-medium flex items-center gap-1.5">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                                Photos stay 100% on-device
+                            </div>
+                        </div>
+
+                        <!-- Biometric Permission -->
+                        <div class="p-5 rounded-xl bg-darkbg border border-darkborder hover:border-emerald-500/40 transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20">
+                                        <i data-lucide="fingerprint" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30">Optional</span>
+                                </div>
+                                <h3 class="font-bold text-white text-base mb-1">Biometric Permission</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                    Used solely for <strong class="text-white">Local Authentication</strong> (Face ID, Touch ID, or Android Biometric Prompt) to quickly unlock your vault without typing your master passcode.
+                                </p>
+                            </div>
+                            <div class="pt-3 border-t border-darkborder text-[11px] text-emerald-400/90 font-medium flex items-center gap-1.5">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                                Processed via OS Secure Enclave
+                            </div>
+                        </div>
+
+                        <!-- Notification Permission -->
+                        <div class="p-5 rounded-xl bg-darkbg border border-darkborder hover:border-emerald-500/40 transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20">
+                                        <i data-lucide="bell" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30">Optional</span>
+                                </div>
+                                <h3 class="font-bold text-white text-base mb-1">Notification Permission</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                    Used solely for delivering scheduled <strong class="text-white">Note Reminders</strong> and alerts created by you within the app calendar.
+                                </p>
+                            </div>
+                            <div class="pt-3 border-t border-darkborder text-[11px] text-emerald-400/90 font-medium flex items-center gap-1.5">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                                Local scheduled pushes only
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Section 6: User Data Control -->
+                <section id="user-control" class="scroll-mt-24 p-6 sm:p-8 rounded-2xl border border-darkborder bg-darkcard/40 hover:border-darkborder/80 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <i data-lucide="trash-2" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white">6. Your Rights & Total Data Ownership</h2>
+                    </div>
+                    <div class="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            Because all data resides exclusively on your local device, you possess total, immediate control over deletion, export, and backups without submitting requests or waiting for data subject access fulfillment.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 rounded-xl bg-darkbg border border-darkborder">
+                                <h4 class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                    <i data-lucide="download" class="w-4 h-4 text-emerald-400"></i> Local Data Export
+                                </h4>
+                                <p class="text-xs text-slate-400">Export your encrypted notes database or plain text files at any time via Settings -> Export Vault.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-darkbg border border-darkborder">
+                                <h4 class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                    <i data-lucide="refresh-cw" class="w-4 h-4 text-emerald-400"></i> Instant Data Erasure
+                                </h4>
+                                <p class="text-xs text-slate-400">Uninstalling the app or selecting "Format Local Vault" immediately and permanently destroys all local keys and stored items.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 7: FAQ -->
+                <section id="faq" class="scroll-mt-24 p-6 sm:p-8 rounded-2xl border border-darkborder bg-darkcard/40 hover:border-darkborder/80 transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <i data-lucide="help-circle" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white">7. Frequently Asked Questions</h2>
+                    </div>
+
+                    <div class="space-y-3" id="faqAccordion">
+
+                        <!-- FAQ Item 1 -->
+                        <div class="border border-darkborder rounded-xl bg-darkbg overflow-hidden">
+                            <button onclick="toggleFaq(1)" class="w-full p-4 text-left font-semibold text-white text-sm sm:text-base flex items-center justify-between hover:text-emerald-400 transition-colors">
+                                <span>Can Pyramid recovery staff restore my notes if I forget my password?</span>
+                                <i data-lucide="chevron-down" id="faqChevron1" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                            </button>
+                            <div id="faqAnswer1" class="hidden px-4 pb-4 text-xs sm:text-sm text-slate-400 border-t border-darkborder/50 pt-3">
+                                No. Because Pyramid operates on a Zero-Knowledge architecture, we never store your master passcode or encryption keys on remote servers. It is impossible for us to recover your data if lost. We recommend keeping a secure physical backup of your master key.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="border border-darkborder rounded-xl bg-darkbg overflow-hidden">
+                            <button onclick="toggleFaq(2)" class="w-full p-4 text-left font-semibold text-white text-sm sm:text-base flex items-center justify-between hover:text-emerald-400 transition-colors">
+                                <span>Where are Intruder Capture photos stored?</span>
+                                <i data-lucide="chevron-down" id="faqChevron2" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                            </button>
+                            <div id="faqAnswer2" class="hidden px-4 pb-4 text-xs sm:text-sm text-slate-400 border-t border-darkborder/50 pt-3">
+                                Photos captured during an unauthorized unlock attempt are stored strictly within Pyramid's encrypted local app directory. They are never sent over the network, uploaded to cloud storage, or made accessible to other apps on your device.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="border border-darkborder rounded-xl bg-darkbg overflow-hidden">
+                            <button onclick="toggleFaq(3)" class="w-full p-4 text-left font-semibold text-white text-sm sm:text-base flex items-center justify-between hover:text-emerald-400 transition-colors">
+                                <span>Does Pyramid track crash logs or error reports?</span>
+                                <i data-lucide="chevron-down" id="faqChevron3" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                            </button>
+                            <div id="faqAnswer3" class="hidden px-4 pb-4 text-xs sm:text-sm text-slate-400 border-t border-darkborder/50 pt-3">
+                                No. We do not use third-party error logging services. All system logs stay on your local device for standard OS diagnostics if explicitly enabled in your device settings.
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Verification Banner Card -->
+                <div class="p-6 rounded-2xl bg-gradient-to-r from-emerald-950/60 via-darkcard to-darkbg border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shrink-0">
+                            <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Have Privacy or Security Questions?</h3>
+                            <p class="text-xs text-slate-400">Our security team responds to security vulnerability reports and architecture inquiries.</p>
+                        </div>
+                    </div>
+                    <button onclick="openContactModal()" class="whitespace-nowrap px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition-all shadow-lg shadow-emerald-500/20">
+                        Contact Security Desk
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-start justify-center pt-20 px-4">
+        <div class="bg-darkcard border border-darkborder rounded-2xl max-w-xl w-full p-5 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-darkborder pb-3">
+                <div class="flex items-center gap-2 text-white font-bold text-sm">
+                    <i data-lucide="search" class="w-4 h-4 text-emerald-400"></i>
+                    <span>Search Privacy Policy</span>
+                </div>
+                <button onclick="toggleSearchModal()" class="text-slate-400 hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Type to search e.g., 'camera', 'encryption', 'biometric'..." class="w-full bg-darkbg border border-darkborder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+            <div id="searchResults" class="max-h-60 overflow-y-auto space-y-2 text-xs text-slate-300">
+                <p class="text-slate-500 italic text-center py-4">Start typing above to filter policy details...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Security Modal -->
+    <div id="contactModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-darkcard border border-darkborder rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-darkborder pb-3">
+                <div class="flex items-center gap-2 text-white font-bold text-base">
+                    <i data-lucide="mail" class="w-5 h-5 text-emerald-400"></i>
+                    <span>Contact Privacy Team</span>
+                </div>
+                <button onclick="closeContactModal()" class="text-slate-400 hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                For security disclosure reports or questions regarding Pyramid's cryptographic local vault implementation:
+            </p>
+            <div class="space-y-3 pt-2">
+                <div class="p-3 bg-darkbg rounded-xl border border-darkborder flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-slate-500 block uppercase font-bold">Security Email</span>
+                        <span class="text-xs font-mono text-emerald-400">privacy@pyramidnotes.sec</span>
+                    </div>
+                    <button onclick="copyEmail()" id="copyBtn" class="text-xs bg-slate-800 hover:bg-slate-700 text-white px-2.5 py-1.5 rounded-lg border border-darkborder flex items-center gap-1">
+                        <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                        <span>Copy</span>
+                    </button>
+                </div>
+            </div>
+            <div class="pt-2 text-right">
+                <button onclick="closeContactModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-darkborder/80 bg-darkbg mt-20 py-10 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-slate-950 font-bold">
+                    <i data-lucide="pyramid" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <span class="text-sm font-bold text-white block">Pyramid Secure Notes</span>
+                    <span class="text-xs text-slate-500">© 2026 Pyramid Vault Systems. All Rights Reserved.</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-6 text-xs text-slate-400">
+                <span class="flex items-center gap-1 text-emerald-400">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Verified Local Isolation
+                </span>
+                <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" class="hover:text-white transition-colors flex items-center gap-1">
+                    Back to top <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Client Logic Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        document.addEventListener("DOMContentLoaded", () => {
+            lucide.createIcons();
+        });
+
+        // Theme Toggle Handler
+        function toggleTheme() {
+            const html = document.documentElement;
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(id) {
+            const answer = document.getElementById(`faqAnswer${id}`);
+            const chevron = document.getElementById(`faqChevron${id}`);
+
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                chevron.classList.add('rotate-180');
+            } else {
+                answer.classList.add('hidden');
+                chevron.classList.remove('rotate-180');
+            }
+        }
+
+        // Search Modal Functions
+        function toggleSearchModal() {
+            const modal = document.getElementById('searchModal');
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) {
+                document.getElementById('searchInput').focus();
+            }
+        }
+
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('searchResults');
+
+            if (query === '') {
+                resultsContainer.innerHTML = '<p class="text-slate-500 italic text-center py-4">Start typing above to filter policy details...</p>';
+                return;
+            }
+
+            const sections = [
+                { title: 'Zero Data Collection', text: 'We collect zero personal data. No usage tracking, IP logging, or location tracking.' },
+                { title: 'On-Device Storage', text: 'All notes, images, and encryption keys are stored exclusively on the user local device.' },
+                { title: 'Third-Party Sharing', text: 'We do not share any data with third parties as we do not have access to your data.' },
+                { title: 'Camera Permission', text: 'Used solely for the Intruder Capture feature to identify unauthorized access attempts. Photos stay on-device.' },
+                { title: 'Biometric Permission', text: 'Used solely for local authentication Face ID or Fingerprint.' },
+                { title: 'Notification Permission', text: 'Used for note reminders and local alerts.' }
+            ];
+
+            const filtered = sections.filter(s => s.title.toLowerCase().includes(query) || s.text.toLowerCase().includes(query));
+
+            if (filtered.length === 0) {
+                resultsContainer.innerHTML = '<p class="text-slate-500 italic text-center py-4">No matching privacy topics found.</p>';
+            } else {
+                resultsContainer.innerHTML = filtered.map(item => `
+                    <div class="p-3 bg-darkbg rounded-xl border border-darkborder">
+                        <div class="font-bold text-emerald-400 mb-1">${item.title}</div>
+                        <p class="text-slate-300 text-xs">${item.text}</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Contact Modal Handlers
+        function openContactModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+        }
+
+        function copyEmail() {
+            navigator.clipboard.writeText('privacy@pyramidnotes.sec');
+            const btn = document.getElementById('copyBtn');
+            btn.innerHTML = '<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i><span>Copied!</span>';
+            lucide.createIcons();
+            setTimeout(() => {
+                btn.innerHTML = '<i data-lucide="copy" class="w-3.5 h-3.5"></i><span>Copy</span>';
+                lucide.createIcons();
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
